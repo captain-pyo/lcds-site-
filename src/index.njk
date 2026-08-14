@@ -1,0 +1,73 @@
+---
+layout: base.njk
+title: 홈
+---
+<section class="hero">
+  {% include "compass.njk" %}
+  <div class="wrap">
+    <div class="hero-eyebrow">Life &amp; Career Design School</div>
+    <h1>인생이라는 항해,<br>당신의 항로를 함께 설계합니다</h1>
+    <p class="lead">{{ about.mission }}</p>
+    <a href="/about/" class="btn solid">스쿨 소개 보기</a>
+    <a href="/programs/" class="btn">운영 과정 보기</a>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mission &amp; Vision</div>
+      <h2>미션과 비전</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <span class="en">Mission</span>
+        <h3>미션</h3>
+        <p>&ldquo;{{ about.mission }}&rdquo;</p>
+      </div>
+      <div class="card">
+        <span class="en">Vision</span>
+        <h3>비전</h3>
+        <p>&ldquo;{{ about.vision }}&rdquo;</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Track Record</div>
+      <h2>스쿨 운영 실적</h2>
+      <p>등록민간자격 과정을 통해 배출한 인원입니다.</p>
+    </div>
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-num">13개 기수</div>
+        <div class="stat-label">생애경력설계사(Life &amp; Career Designer) 1급</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">6개 기수</div>
+        <div class="stat-label">전직지원컨설턴트(Outplacement Consultant) 1급</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Philosophy</div>
+      <h2>대표자 철학</h2>
+    </div>
+    <div class="grid-3">
+      {% for p in about.philosophy %}
+      <div class="card">
+        <span class="en">{{ p.en }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

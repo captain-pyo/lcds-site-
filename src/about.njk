@@ -1,0 +1,91 @@
+---
+layout: base.njk
+title: 소개
+permalink: /about/
+---
+<section class="block tight" style="background:var(--navy-deep); color:#fff;">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h1 style="color:#fff;">{{ about.bio_title }}</h1>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="profile-grid">
+      <img class="profile-photo" src="{{ about.profile_image }}" alt="{{ site.founder }} 대표">
+      <div>
+        <p style="font-size:1.05rem; color:var(--ink); margin-top:0;">{{ about.bio_summary }}</p>
+        <ul class="cred-list">
+          {% for c in about.credentials %}
+          <li>{{ c }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Voyage</div>
+      <h2>항해 기록 &mdash; 경력의 궤적</h2>
+    </div>
+    <div class="voyage">
+      {% for v in about.voyage %}
+      <div class="voyage-item">
+        <div class="period">{{ v.period }}</div>
+        <div class="desc">{{ v.desc }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Philosophy</div>
+      <h2>대표자 철학 &mdash; 도전 + 협업 + 신뢰</h2>
+    </div>
+    <div class="grid-3">
+      {% for p in about.philosophy %}
+      <div class="card">
+        <span class="en">{{ p.en }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Field</div>
+      <h2>출강 · 협력 기관</h2>
+    </div>
+    <div class="card" style="line-height:2.1;">
+      {% for org in about.partner_orgs %}<span style="display:inline-block; margin:0 18px 8px 0; color:var(--muted);">{{ org }}</span>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gallery</div>
+      <h2>강의 · 컨설팅 현장</h2>
+    </div>
+    <div class="gallery">
+      {% for key, item in gallery %}
+      <figure>
+        <img src="{{ item.image }}" alt="{{ item.caption }}">
+        <figcaption>{{ item.caption }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>

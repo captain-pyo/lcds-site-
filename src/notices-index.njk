@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: 공지사항
+permalink: /notices/
+---
+<section class="block tight" style="background:var(--navy-deep); color:#fff;">
+  <div class="wrap">
+    <div class="eyebrow">Notices</div>
+    <h1 style="color:#fff;">공지사항</h1>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    {% set items = collections.notices | reverse %}
+    {% if items.length %}
+    <ul class="notice-list">
+      {% for item in items %}
+      <li class="notice-item">
+        <span class="notice-date">{{ item.date | dateKr }}</span>
+        <div>
+          <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+          {% if item.data.summary %}<p>{{ item.data.summary }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class="empty-state">아직 등록된 글이 없습니다. 관리자 화면에서 첫 소식을 올려보세요.</div>
+    {% endif %}
+  </div>
+</section>

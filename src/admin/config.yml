@@ -1,0 +1,124 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+locale: "ko"
+
+collections:
+  - name: "notices"
+    label: "공지사항"
+    label_singular: "글"
+    folder: "src/notices"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "날짜", name: "date", widget: "datetime" }
+      - { label: "요약(목록에 짧게 보일 문구)", name: "summary", widget: "text", required: false }
+      - { label: "본문", name: "body", widget: "markdown" }
+
+  - name: "gallery"
+    label: "사진 갤러리 (소개 페이지)"
+    label_singular: "사진"
+    folder: "src/_data/gallery"
+    create: true
+    extension: "yml"
+    format: "yml"
+    fields:
+      - { label: "사진", name: "image", widget: "image" }
+      - { label: "코멘트", name: "caption", widget: "string" }
+
+  - name: "publications"
+    label: "저작물"
+    label_singular: "저작물"
+    folder: "src/_data/publications"
+    create: true
+    extension: "yml"
+    format: "yml"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "연도", name: "year", widget: "string", required: false }
+      - { label: "출판사", name: "publisher", widget: "string", required: false }
+      - { label: "소개", name: "desc", widget: "text" }
+      - { label: "링크(선택)", name: "link", widget: "string", required: false }
+      - { label: "표지 이미지(선택)", name: "cover", widget: "image", required: false }
+
+  - name: "settings"
+    label: "사이트 설정"
+    editor: { preview: false }
+    files:
+      - name: "about"
+        label: "소개 페이지"
+        file: "src/_data/about.json"
+        fields:
+          - { label: "미션", name: "mission", widget: "text" }
+          - { label: "비전", name: "vision", widget: "text" }
+          - { label: "프로필 사진", name: "profile_image", widget: "image" }
+          - { label: "소개 제목", name: "bio_title", widget: "string" }
+          - { label: "소개 요약", name: "bio_summary", widget: "text" }
+          - label: "약력/자격"
+            name: "credentials"
+            widget: "list"
+            field: { label: "항목", name: "item", widget: "string" }
+          - label: "철학 (도전/협업/신뢰)"
+            name: "philosophy"
+            widget: "list"
+            fields:
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "영문", name: "en", widget: "string" }
+              - { label: "설명", name: "desc", widget: "text" }
+          - label: "항해 기록 (경력 타임라인)"
+            name: "voyage"
+            widget: "list"
+            fields:
+              - { label: "시기", name: "period", widget: "string" }
+              - { label: "설명", name: "desc", widget: "text" }
+          - label: "출강/협력 기관"
+            name: "partner_orgs"
+            widget: "list"
+            field: { label: "기관명", name: "org", widget: "string" }
+
+      - name: "programs"
+        label: "프로그램 페이지"
+        file: "src/_data/programs.json"
+        fields:
+          - { label: "소개 문구", name: "intro", widget: "text" }
+          - label: "디자인씽킹 단계"
+            name: "design_thinking"
+            widget: "list"
+            fields:
+              - { label: "단계명", name: "step", widget: "string" }
+              - { label: "영문", name: "en", widget: "string" }
+              - { label: "설명", name: "desc", widget: "string" }
+          - label: "차별성 키워드"
+            name: "differentiators"
+            widget: "list"
+            fields:
+              - { label: "용어", name: "term", widget: "string" }
+              - { label: "한자", name: "hanja", widget: "string" }
+              - { label: "설명", name: "desc", widget: "string" }
+          - label: "등록민간자격 과정"
+            name: "certifications"
+            widget: "list"
+            fields:
+              - { label: "과정명(국문)", name: "name_kr", widget: "string" }
+              - { label: "과정명(영문)", name: "name_en", widget: "string" }
+              - { label: "급수", name: "level", widget: "string" }
+              - { label: "등록번호", name: "reg_no", widget: "string" }
+              - { label: "설명", name: "desc", widget: "text" }
+              - { label: "배출 기수", name: "cohorts", widget: "string" }
+
+      - name: "contact"
+        label: "문의/연락처"
+        file: "src/_data/contact.json"
+        fields:
+          - { label: "이메일", name: "email", widget: "string" }
+          - { label: "전화번호", name: "phone", widget: "string" }
+          - { label: "블로그 URL", name: "blog", widget: "string" }
+          - { label: "페이스북 URL", name: "facebook", widget: "string" }
+          - { label: "유튜브 URL", name: "youtube", widget: "string" }
+          - { label: "밴드명", name: "band", widget: "string" }

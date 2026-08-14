@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <div class="brand-kr" style="color:#fff; font-family:var(--serif); margin-bottom:6px;">{{ site.name_kr }}</div>
+      <div>{{ contact.email }} · {{ contact.phone }}</div>
+    </div>
+    <div>
+      <a href="{{ contact.blog }}" target="_blank" rel="noopener">블로그</a> &nbsp;·&nbsp;
+      <a href="{{ contact.facebook }}" target="_blank" rel="noopener">페이스북</a> &nbsp;·&nbsp;
+      <a href="{{ contact.youtube }}" target="_blank" rel="noopener">유튜브</a>
+    </div>
+  </div>
+  <div class="wrap copy">&copy; {{ year }} {{ site.name_kr }} ({{ site.short }}). All rights reserved.</div>
+</footer>

@@ -1,0 +1,5 @@
+{
+  "layout": "notice.njk",
+  "permalink": "/notices/{{ page.fileSlug }}/",
+  "tags": "notices"
+}

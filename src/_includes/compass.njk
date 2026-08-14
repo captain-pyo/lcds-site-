@@ -1,0 +1,14 @@
+<svg class="compass" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle cx="200" cy="200" r="190" fill="none" stroke="#C9A84C" stroke-width="1"/>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#C9A84C" stroke-width="1"/>
+  <circle cx="200" cy="200" r="2" fill="#C9A84C"/>
+  {% for i in range(0, 360, 15) %}
+  <line x1="200" y1="14" x2="200" y2="{{ 14 if i % 90 == 0 else 26 }}" stroke="#C9A84C" stroke-width="1" transform="rotate({{ i }} 200 200)"/>
+  {% endfor %}
+  <polygon points="200,40 212,200 200,220 188,200" fill="#C9A84C"/>
+  <polygon points="200,360 188,200 200,180 212,200" fill="none" stroke="#C9A84C" stroke-width="1"/>
+  <text x="200" y="34" text-anchor="middle" fill="#C9A84C" font-size="16" font-family="serif">N</text>
+  <text x="200" y="378" text-anchor="middle" fill="#C9A84C" font-size="12" font-family="serif">S</text>
+  <text x="378" y="205" text-anchor="middle" fill="#C9A84C" font-size="12" font-family="serif">E</text>
+  <text x="22" y="205" text-anchor="middle" fill="#C9A84C" font-size="12" font-family="serif">W</text>
+</svg>

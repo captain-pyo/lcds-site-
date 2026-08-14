@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+<section class="block tight" style="background:var(--navy-deep); color:#fff;">
+  <div class="wrap">
+    <div class="eyebrow">{{ date | dateKr }}</div>
+    <h1 style="color:#fff;">{{ title }}</h1>
+  </div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <article class="notice-body">
+      {{ content | safe }}
+    </article>
+    <p style="margin-top:40px;"><a href="/notices/" class="btn dark">목록으로</a></p>
+  </div>
+</section>

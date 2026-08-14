@@ -1,0 +1,27 @@
+---
+layout: base.njk
+title: 저작물
+permalink: /publications/
+---
+<section class="block tight" style="background:var(--navy-deep); color:#fff;">
+  <div class="wrap">
+    <div class="eyebrow">Publications</div>
+    <h1 style="color:#fff;">저서 · 번역서 · 자료</h1>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="grid-3">
+      {% for key, p in publications %}
+      <div class="card">
+        {% if p.cover %}<img src="{{ p.cover }}" alt="{{ p.title }}" style="margin-bottom:16px;">{% endif %}
+        <h3>{{ p.title }}</h3>
+        {% if p.publisher or p.year %}<p style="font-size:0.8rem; color:var(--gold); margin-bottom:8px;">{{ p.publisher }} {{ p.year }}</p>{% endif %}
+        <p>{{ p.desc }}</p>
+        {% if p.link %}<a href="{{ p.link }}" class="btn dark" style="margin-top:16px; padding:8px 18px; font-size:0.85rem;" target="_blank" rel="noopener">자세히 보기</a>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
