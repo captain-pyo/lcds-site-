@@ -68,6 +68,26 @@ permalink: /programs/
 </section>
 
 <section class="block alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Certificate Course</div>
+      <h2>수료증 과정</h2>
+      <p>국가 등록 자격은 아니지만, 실습과 퍼실리테이션 역량을 쌓는 일반 수료증 과정입니다.</p>
+    </div>
+    <div class="grid-2">
+      {% for c in programs.certificate_courses %}
+      <div class="card">
+        <span class="en">{{ c.name_en }}</span>
+        <h3>{{ c.name_kr }}</h3>
+        <p>{{ c.desc }}</p>
+        <p style="margin-top:14px; font-family:var(--serif); color:var(--navy); font-weight:700;">{{ c.cohorts }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="block">
   <div class="wrap" style="text-align:center;">
     <h2>과정이 궁금하시다면</h2>
     <p style="color:var(--muted);">등록 일정과 커리큘럼 상세 안내를 받아보세요.</p>
