@@ -140,6 +140,14 @@ collections:
               - { label: "등록번호", name: "reg_no", widget: "string" }
               - { label: "설명", name: "desc", widget: "text" }
               - { label: "배출 기수", name: "cohorts", widget: "string" }
+          - label: "수료증 과정 (일반)"
+            name: "certificate_courses"
+            widget: "list"
+            fields:
+              - { label: "과정명(국문)", name: "name_kr", widget: "string" }
+              - { label: "과정명(영문)", name: "name_en", widget: "string" }
+              - { label: "설명", name: "desc", widget: "text" }
+              - { label: "배출 기수", name: "cohorts", widget: "string" }
 
       - name: "contact"
         label: "문의/연락처"
