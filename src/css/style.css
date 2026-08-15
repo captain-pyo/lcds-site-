@@ -146,7 +146,7 @@ nav.main-nav a.active {
 }
 .compass {
   position: absolute;
-  right: 60px;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 480px;
@@ -156,11 +156,11 @@ nav.main-nav a.active {
   z-index: 1;
 }
 @media (max-width: 900px) {
-  .compass { width: 320px; height: 320px; right: -60px; opacity: 0.4; }
+  .compass { width: 320px; height: 320px; right: -20px; opacity: 0.4; }
 }
 .hero-photo {
   position: absolute;
-  right: 60px;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 360px;
@@ -172,7 +172,7 @@ nav.main-nav a.active {
   z-index: 1;
 }
 @media (max-width: 1100px) {
-  .hero-photo { width: 280px; height: 380px; right: 24px; }
+  .hero-photo { width: 280px; height: 380px; right: 0; }
 }
 @media (max-width: 760px) {
   .hero-photo { display: none; }
