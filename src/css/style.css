@@ -146,16 +146,36 @@ nav.main-nav a.active {
 }
 .compass {
   position: absolute;
-  right: -80px;
+  right: -40px;
   top: 50%;
   transform: translateY(-50%);
   width: 480px;
   height: 480px;
-  opacity: 0.16;
+  opacity: 0.55;
+  filter: drop-shadow(0 0 30px rgba(201,168,76,0.15));
   z-index: 1;
 }
 @media (max-width: 900px) {
-  .compass { width: 320px; height: 320px; right: -100px; }
+  .compass { width: 320px; height: 320px; right: -60px; opacity: 0.4; }
+}
+.hero-photo {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 360px;
+  height: 460px;
+  object-fit: cover;
+  border: 6px solid var(--gold);
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  z-index: 1;
+}
+@media (max-width: 1100px) {
+  .hero-photo { width: 280px; height: 380px; right: 24px; }
+}
+@media (max-width: 760px) {
+  .hero-photo { display: none; }
 }
 
 .btn {
