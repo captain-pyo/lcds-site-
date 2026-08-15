@@ -23,7 +23,7 @@ permalink: /contact/
       </ul>
     </div>
     <div>
-      <form class="inquiry" name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <form class="inquiry" name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return checkContactInfo(this)">
         <input type="hidden" name="form-name" value="inquiry">
         <p style="display:none;"><label>이 항목을 비워두세요: <input name="bot-field"></label></p>
         <div>
@@ -31,8 +31,12 @@ permalink: /contact/
           <input type="text" id="name" name="name" required>
         </div>
         <div>
-          <label for="email">이메일</label>
-          <input type="email" id="email" name="email" required>
+          <label for="email">이메일 (전화번호 중 최소 하나 입력)</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div>
+          <label for="phone">전화번호 (이메일 중 최소 하나 입력)</label>
+          <input type="tel" id="phone" name="phone" placeholder="010-0000-0000">
         </div>
         <div>
           <label for="message">문의 내용</label>
@@ -40,6 +44,17 @@ permalink: /contact/
         </div>
         <button type="submit">보내기</button>
       </form>
+      <script>
+        function checkContactInfo(form) {
+          const email = form.email.value.trim();
+          const phone = form.phone.value.trim();
+          if (!email && !phone) {
+            alert('이메일 또는 전화번호 중 하나는 반드시 입력해 주세요.');
+            return false;
+          }
+          return true;
+        }
+      </script>
     </div>
   </div>
 </section>
