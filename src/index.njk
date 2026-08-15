@@ -3,7 +3,11 @@ layout: base.njk
 title: 홈
 ---
 <section class="hero">
+  {% if about.hero_image %}
+  <img class="hero-photo" src="{{ about.hero_image }}" alt="{{ site.name_kr }}">
+  {% else %}
   {% include "compass.njk" %}
+  {% endif %}
   <div class="wrap">
     <div class="hero-eyebrow">Life &amp; Career Design School</div>
     <h1>인생이라는 항해,<br>당신의 항로를 함께 설계합니다</h1>
