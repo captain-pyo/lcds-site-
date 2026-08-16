@@ -76,6 +76,17 @@ collections:
       - { label: "링크(선택)", name: "link", widget: "string", required: false }
       - { label: "표지 이미지(선택)", name: "cover", widget: "image", required: false }
 
+  - name: "testimonials"
+    label: "클라이언트 후기"
+    label_singular: "후기"
+    folder: "src/_data/testimonials"
+    create: true
+    extension: "yml"
+    format: "yml"
+    fields:
+      - { label: "과정/서비스명", name: "course", widget: "string", hint: "예: 생애경력설계사 14기, 1:1 전직지원 컨설팅" }
+      - { label: "후기 내용", name: "quote", widget: "text" }
+
   - name: "settings"
     label: "사이트 설정"
     editor: { preview: false }
