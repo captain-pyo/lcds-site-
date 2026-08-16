@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: 후기
+permalink: /testimonials/
+---
+<section class="block tight" style="background:var(--navy-deep); color:#fff;">
+  <div class="wrap">
+    <div class="eyebrow">Testimonials</div>
+    <h1 style="color:#fff;">클라이언트 후기 모음</h1>
+    <p style="color:rgba(255,255,255,0.75); max-width:60ch;">과정을 수료하신 분들과 컨설팅을 받으신 고객분들께서 직접 남겨주신 소감을 그대로 담았습니다.</p>
+  </div>
+</section>
+
+{% for group in testimonials | groupByCourse %}
+<section class="block {{ 'alt' if loop.index is odd else '' }}">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">{{ group.course }}</div>
+      <h2>{{ group.course }} 후기</h2>
+    </div>
+    <div class="testimonial-grid">
+      {% for q in group.quotes %}
+      <div class="testimonial-card">
+        <p>&ldquo;{{ q }}&rdquo;</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="block">
+  <div class="wrap" style="text-align:center;">
+    <h2>여러분의 이야기도 궁금합니다</h2>
+    <p style="color:var(--muted);">과정이나 컨설팅에 대해 더 알고 싶으시면 편하게 문의해주세요.</p>
+    <a href="/contact/" class="btn dark">문의하기</a>
+  </div>
+</section>
