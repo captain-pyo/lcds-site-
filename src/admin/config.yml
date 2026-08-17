@@ -161,6 +161,36 @@ collections:
               - { label: "설명", name: "desc", widget: "text" }
               - { label: "배출 기수", name: "cohorts", widget: "string" }
 
+      - name: "consultation"
+        label: "상담신청 페이지"
+        file: "src/_data/consultation.json"
+        fields:
+          - { label: "소개 문구", name: "intro", widget: "text" }
+          - label: "과정 개강 상담 - 과정 종류"
+            name: "course_types"
+            widget: "list"
+            field: { label: "과정명", name: "item", widget: "string" }
+          - { label: "무료 상담 설명", name: "free_desc", widget: "text" }
+          - { label: "유료 상담 설명", name: "paid_desc", widget: "text" }
+
+      - name: "content_library"
+        label: "콘텐츠 제작 페이지"
+        file: "src/_data/content_library.json"
+        fields:
+          - { label: "소개 문구", name: "intro", widget: "text" }
+          - { label: "패키지 보유 수량(예: 100여 개)", name: "package_count", widget: "string" }
+          - { label: "모듈 보유 수량(예: 1,600여 개)", name: "module_count", widget: "string" }
+          - label: "카테고리"
+            name: "categories"
+            widget: "list"
+            fields:
+              - { label: "카테고리명", name: "name", widget: "string" }
+              - { label: "아이콘", name: "icon", widget: "select", options: ["compass", "wave", "route", "spark"] }
+              - label: "대표 주제 (3~5개, 마지막 항목에 '등'을 붙이면 다수 보유를 암시)"
+                name: "topics"
+                widget: "list"
+                field: { label: "주제명", name: "item", widget: "string" }
+
       - name: "contact"
         label: "문의/연락처"
         file: "src/_data/contact.json"
