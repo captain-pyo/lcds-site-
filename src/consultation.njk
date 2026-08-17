@@ -1,0 +1,119 @@
+---
+layout: base.njk
+title: 상담신청
+permalink: /consultation/
+---
+<section class="block tight" style="background:var(--navy-deep); color:#fff;">
+  <div class="wrap">
+    <div class="eyebrow">Consultation</div>
+    <h1 style="color:#fff;">상담을 신청하세요</h1>
+    <p style="color:rgba(255,255,255,0.75); max-width:52ch;">{{ consultation.intro }}</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="grid-3">
+      <div class="card">
+        <span class="en">Course Orientation</span>
+        <h3>과정 개강 상담</h3>
+        <p>{{ consultation.course_types | join(" · ") }} 등, 개강을 앞두고 있거나 준비 중인 과정에 대해 상담합니다.</p>
+        <p style="margin-top:10px; font-size:0.85rem; color:var(--gold);">세부사항은 상담을 통해 함께 설계합니다.</p>
+      </div>
+      <div class="card">
+        <span class="en">Free Consultation</span>
+        <h3>무료 경력·생애설계 상담</h3>
+        <p>{{ consultation.free_desc }}</p>
+        <p style="margin-top:10px; font-size:0.85rem; color:var(--gold);">15분 내외</p>
+      </div>
+      <div class="card">
+        <span class="en">Paid Consultation</span>
+        <h3>유료 경력·생애설계 상담</h3>
+        <p>{{ consultation.paid_desc }}</p>
+        <p style="margin-top:10px; font-size:0.85rem; color:var(--gold);">비용과 시간은 상담을 통해 협의합니다</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Apply</div>
+      <h2>상담 신청서</h2>
+      <p style="color:var(--muted); max-width:44ch;">신청서를 남겨주시면 확인 후 연락드립니다. 상담 구분을 선택하시면 그에 맞는 항목이 표시됩니다.</p>
+    </div>
+    <div>
+      <form class="inquiry" name="consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return checkConsultationForm(this)">
+        <input type="hidden" name="form-name" value="consultation">
+        <p style="display:none;"><label>이 항목을 비워두세요: <input name="bot-field"></label></p>
+
+        <div class="field-group">
+          <label for="consult_kind">상담 구분</label>
+          <select id="consult_kind" name="consult_kind" required>
+            <option value="">선택해 주세요</option>
+            <option value="과정 개강 상담">과정 개강 상담</option>
+            <option value="무료 경력·생애설계 상담">무료 경력·생애설계 상담 (15분 내외)</option>
+            <option value="유료 경력·생애설계 상담">유료 경력·생애설계 상담</option>
+          </select>
+        </div>
+
+        <div class="field-group conditional-field" id="course-field">
+          <label for="course_type">관심 과정</label>
+          <select id="course_type" name="course_type">
+            <option value="">선택해 주세요</option>
+            {% for c in consultation.course_types %}
+            <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="field-group conditional-field" id="method-field">
+          <label for="consult_method">상담 방식</label>
+          <select id="consult_method" name="consult_method">
+            <option value="">선택해 주세요</option>
+            <option value="대면 상담">대면 상담</option>
+            <option value="줌(Zoom) 상담">줌(Zoom) 상담</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="name">이름</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">이메일</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div>
+          <label for="phone">전화번호</label>
+          <input type="tel" id="phone" name="phone" placeholder="010-0000-0000">
+        </div>
+        <div>
+          <label for="message">문의 내용</label>
+          <textarea id="message" name="message" placeholder="현재 상황이나 희망하시는 상담 방향을 간단히 적어주시면 도움이 됩니다."></textarea>
+        </div>
+        <button type="submit">상담 신청하기</button>
+      </form>
+      <script>
+        function checkConsultationForm(form) {
+          if (!form.email.value.trim() && !form.phone.value.trim()) {
+            alert('이메일 또는 전화번호 중 하나는 입력해 주세요.');
+            return false;
+          }
+          return true;
+        }
+        var kindSelect = document.getElementById('consult_kind');
+        var courseField = document.getElementById('course-field');
+        var methodField = document.getElementById('method-field');
+        function updateConsultFields() {
+          var v = kindSelect.value;
+          courseField.classList.toggle('show', v === '과정 개강 상담');
+          methodField.classList.toggle('show', v === '유료 경력·생애설계 상담');
+        }
+        kindSelect.addEventListener('change', updateConsultFields);
+        updateConsultFields();
+      </script>
+    </div>
+  </div>
+</section>
